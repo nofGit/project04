@@ -1,0 +1,28 @@
+input{
+    margin: 5px auto;
+
+}
+
+
+.formDiv{
+    margin: 20px;
+    border: 2px solid black;
+    height: 300px;
+    position: relative;
+    text-align: center;
+
+}
+
+.userStatusMessage{
+    background-color: rgb(195, 197, 54);
+    border: 2px solid black;
+    margin-left: 30%;
+    text-align: center;
+    width: 150px;
+    height: 100px;
+}
+
+.userStatusMessage button{
+    margin: 30px;
+
+}

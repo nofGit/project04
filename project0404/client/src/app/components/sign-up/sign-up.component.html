@@ -1,0 +1,117 @@
+
+
+<div class='mainDiv' >
+
+    <a  style="color: beige; font-size: large; height: 20px;" routerLink='/home'>  back  </a>
+    
+    
+
+<form [formGroup]= 'newUser' class="signForm"  (ngSubmit)='signUp()'>
+    <h2>Sign Up</h2>
+
+
+  
+            <label>  ID </label>
+            <div class="fields"  >
+                    <input  class="input" type="number" placeholder="ID number" formControlName='user_id' autofocus  />&nbsp;
+                    <span *ngIf= 'newUser.controls.user_id.errors' >
+                        <span *ngIf=' newUser.controls.user_id.errors.pattern' >must be 9 length</span>
+                        <span *ngIf='newUser.controls.user_id.errors.required' >Required</span>
+
+                     </span> 
+                 </div>
+        <br>
+        <label>   Email Address </label>
+            <div class="fields" >
+            <input  class="input" type='email' placeholder="email address" formControlName='email' /> &nbsp;
+            <span *ngIf= 'newUser.controls.email.errors' >
+                <span *ngIf='newUser.controls.email.errors.required' >Required</span>
+                <span *ngIf='newUser.controls.email.errors.pattern' >email is not valid</span>
+            </span> 
+        </div>
+   <br>
+   
+   <label>  Password </label>
+   <div class="fields"  >
+   <input type='password' class="input"  placeholder="password" formControlName='user_password' />&nbsp;
+   <span *ngIf= 'newUser.controls.user_password.errors' >
+       <span *ngIf='newUser.controls.user_password.errors.minlength' >min 5 length</span>
+       <span *ngIf='newUser.controls.user_password.errors.required' >required</span>
+    </span> 
+</div>
+    <br>
+    <label> Confirm Password </label>
+    <div class="fields"  >
+        <input type="password" class="input"  placeholder="confirm" formControlName='confirm_password' />
+        <span *ngIf='newUser.controls.confirm_password.errors' >
+            <span *ngIf='newUser.controls.confirm_password.errors.mustMatch' >Password must be the same</span>
+            <span *ngIf='newUser.controls.confirm_password.errors.required' > Required </span>
+        </span>
+    </div>
+    <br>
+    
+    <input type="button" value="continue" [disabled]='!newUser.controls.user_id.valid || !newUser.controls.email.valid || !newUser.controls.user_password.valid || !newUser.controls.confirm_password.valid ' (click)='continueBtn()' />
+    
+    
+    <div [hidden]='showContinueSignUp' >
+        
+        <br>
+         
+            <label> First Name </label>
+
+        <div class="fields"  > 
+            <input type='text' placeholder="first name" formControlName='first_name' #firstNameInput /> &nbsp;
+            <span *ngIf= 'newUser.controls.first_name.errors' >
+                <span *ngIf='newUser.controls.first_name.errors.required' >required</span>
+            </span> 
+        </div>
+        <br>
+        
+        <label> Last Name </label>
+        <div class="fields"  >
+            <input type='text' placeholder="last name" formControlName='last_name' />&nbsp;
+            <span *ngIf= 'newUser.controls.last_name.errors' >
+                <span *ngIf='newUser.controls.last_name.errors.required' >required</span>
+            </span> 
+        </div>
+        <br>        
+        <label> City</label>
+        <div class="fields"  >
+            <select formControlName='city' >
+                <option value="Jerusalem" >Jerusalem</option>
+                <option value='Tel-Aviv' >Tel-Aviv</option>
+                <option value='Heifa' >Heifa</option>
+                <option value="Herzelya" >Herzelya</option>
+                <option value="Bat Yam" >Bat Yam</option>
+                <option value="Beer Sheva" >Beer Sheva</option>
+                <option value="Naharya" >Naharya</option>
+                <option value="Modeen" >Modeen</option>
+                <option value="Natanya" >Natanya</option>
+                <option value="Ashdod" >Ashdod</option>
+            </select>
+            <span *ngIf= 'newUser.controls.city.errors' >
+                <span *ngIf='newUser.controls.city.errors.required' >required</span>
+            </span> 
+        </div>
+            <br>
+            <label> City</label>
+            <div class="fields"  >               
+                <input type='text' placeholder="street" formControlName='street' />&nbsp;
+                <span *ngIf= 'newUser.controls.street.errors' >
+                    <span *ngIf='newUser.controls.street.errors.required' >Required</span>
+                </span> 
+                <br>
+            </div>
+            <br>
+            <input type="submit" value="Sign Up"  [disabled]='!newUser.valid' />
+        </div>
+            
+            
+        
+        
+        
+    </form>
+    
+    
+    
+</div>

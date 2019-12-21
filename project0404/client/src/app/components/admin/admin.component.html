@@ -1,0 +1,87 @@
+<u>   <h1 >Hello Admin </h1> </u>
+<hr>
+        
+  <h2>  Serch Product  </h2>    <input placeholder="search product" [(ngModel)]= 'searchProduct' (keyup)='filterProducts()' autofocus /> <br>
+  <button style="background-color: rgb(214, 211, 41); float: right; margin: 10px;"  (click)='getAllProducts()' >home</button> <br>
+
+    <div class='categoryButton' *ngFor='let productCategory of productsCategory' >
+            <button  style="border: 1px solid rgb(196, 66, 109); background-color: #c78dab; float: right; margin: 10px; " (click)='getProductsByCaregory(productCategory.category_id)' > {{productCategory.category_name}} </button>
+    </div>
+
+<div class="productsMainDiv" >
+        
+        <div class="updateProductDiv" >
+                <h1>update prodtct</h1>
+                <button style="margin: 10px;" (click) = 'openEdditorForm($e)' > + </button>
+                <br>
+                <div class="showClickedProduct" *ngIf='chosenProduct' >
+                <img width='80px' src="{{chosenProduct.product_picture}}" />    
+                <br>
+                <br>
+                <p> <b> Product Name </b>   : {{chosenProduct.product_name}}  </p>
+                <p> <b> Price </b>   : ${{chosenProduct.price}}  </p>
+                <p> <b> Product ID </b>   : {{chosenProduct.product_id}}  </p>
+                <p> <b> Category Name </b>   : {{chosenProduct.category_name}}  </p>  
+                        <br>        
+                </div>
+
+
+                <div *ngIf=isForm >
+                 <form [formGroup]='formForUpdate' (ngSubmit)='edditProduct()'>
+
+                name: <input type="text" placeholder="product_name" formControlName='product_name' name="product_name" #firstInput />
+                <span *ngIf= 'formForUpdate.controls.product_name.errors'>
+                        <span *ngIf='formForUpdate.controls.product_name.errors.required' >Required</span>
+                </span> 
+             
+                <br/>
+
+                price: <input type="number" placeholder="price" formControlName='price' name="price"  /> 
+                <span *ngIf= 'formForUpdate.controls.price.errors'>
+                        <span *ngIf='formForUpdate.controls.price.errors.required' >Required</span>
+                </span> 
+                <br/>
+
+                category_name    <select name="category_id"  formControlName='category_id' >
+                        <option *ngFor='let productCategory of productsCategory'  [value]="productCategory.category_name"  >{{productCategory.category_name}}</option>
+                </select>  
+                <span *ngIf= 'formForUpdate.controls.category_id.errors'>
+                        <span *ngIf='formForUpdate.controls.category_id.errors.required' >Required</span>
+                </span> 
+
+                <br>
+                picture: <input type="text"  name="product_picture"  placeholder="copy image address" formControlName='product_picture' /> 
+                <span *ngIf= 'formForUpdate.controls.product_picture.errors'>
+                        <span *ngIf='formForUpdate.controls.product_picture.errors.required' >Required</span>
+                </span> 
+                <br/> 
+                If you want to update some product, you have to put the Product ID <br>
+                 <input type="text" placeholder="product id " formControlName='product_id'  name="product_id"  /> <br/>
+        <input type="submit" value="Save" [disabled]='!formForUpdate.controls.product_name.valid || !formForUpdate.controls.price.valid || !formForUpdate.controls.category_id.valid ||  !formForUpdate.controls.product_picture.valid ' />
+
+
+                </form>
+
+                </div>
+            
+        </div>
+
+
+        <div class="products" >
+            
+                 <div style="cursor: pointer;" class="productsClass" *ngFor='let product of products' (click)='clickedProduct(product)'  >
+                    <p>  {{product.product_name}}</p>
+                    <p>  ${{product.price}}</p>
+                    <img width='40px' src="{{product.product_picture}}" />   
+                </div>
+
+        </div>
+
+
+</div>
+
+
+
+
+
+

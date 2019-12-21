@@ -1,0 +1,36 @@
+<h2>Your Cart</h2>
+
+<table>
+<div [ngClass]="{'closeCart' : cartClosed}" >
+    <span  class="cleanCanBtn" *ngIf='!cartIsEmpty' >
+            <button style="background-color: red;"   (click)= 'cleanCart()' >Clean Cart</button>
+    </span>
+
+
+        <tr >
+            <th>product name</th>  &nbsp; <th>  price </th> &nbsp; <th> quantity</th>
+        </tr>
+
+
+            <tr style="height: 10px; width: 50px;" *ngFor="let cartItem of cartItems">
+                <td> {{cartItem.product_name}} </td>&nbsp;
+                <td> ${{cartItem.price}} </td>&nbsp;
+                <td> {{cartItem.quantity}} </td> &nbsp;
+                <td>
+                    <img  style="display: table; margin: 10px;" width='40px' src="{{cartItem.product_picture}}" >
+                </td>
+                <button class="deleteProduct" (click)='deleteProductFromCart(cartItem.product_id)' >X</button>
+            </tr>
+            
+            
+            
+            <br>
+            <tr style="font-weight: bold;" *ngIf='!cartIsEmpty' >  Total Price:  ${{totalPrice}}    </tr>
+            
+            <button [disabled]= 'cartIsEmpty' (click)= 'orderCart() ' > Order </button>
+        </div>
+       
+       
+</table>
+
+

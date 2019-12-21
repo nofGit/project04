@@ -1,0 +1,28 @@
+
+
+@media only screen and (max-width: 600px) {
+    .mainDiv{ display:none; flex-flow: column; }
+
+  }
+
+
+.mainDiv{  
+    display: flex; 
+    text-align: center;
+}
+
+.shippingUserDetails{
+    height: 100%;
+    width: -webkit-fill-available;
+}
+
+.receipt{
+    width: 750px;
+    height: 650px;
+    overflow: auto;
+    border: 2px dashed rgb(122, 35, 68);
+}
+
+table tr{
+border:1px solid black ;
+}

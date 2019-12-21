@@ -1,0 +1,83 @@
+<h1>Welcome ! </h1>
+<label>Searche product</label>
+<input placeholder="search product" [(ngModel)]= 'searchProduct' (keyup)='filterProducts()' autofocus  />
+
+<br>
+<button style="background-color: rgb(214, 211, 41); float: right;"  (click)='getAllProducts()' >home</button> <br>
+
+
+<div class='categoryButton'>
+    <div *ngFor='let productCategody of productsCategody'>
+        <button  style="border: 1px solid rgb(196, 66, 109); background-color: #c78dab; " (click)='getProductsByCaregory(productCategody.category_id)'> {{productCategody.category_name}} </button>
+    </div>
+</div>
+
+    
+<div class="productsMainDiv" >
+
+        <div  class="productsClass" *ngFor='let product of products'  >
+            <p>  {{product.product_name}} </p> 
+            <p>  ${{product.price}}</p> 
+            <br>
+            <div class="imgDiv" >
+                <img width='50px' src="{{product.product_picture}}" /> 
+            </div>
+            <br>
+            <button style=" position: absolute; margin: auto; margin-top: 150px; margin-left: 50px;" (click)='showQuantityInput(product)' >Selcet</button>
+       
+        </div>
+
+
+</div>
+
+<div  dialogClose >
+    <!-- <div (click)='closeDialgog()'  *ngIf='dialogClose ' > -->
+    <div  *ngIf='dialogClose' >
+        <div  class="backGroundDivFrorDialog">
+            <div  class="dialogDiv">
+                <button  (click)='closeDialgog()' >X</button>
+                <h1> Please Choose the requested quantity </h1>
+                <br>
+                <img style="width: 100px; height: 100px; position: absolute;" width='70px' src="{{chosenProduct.product_picture}}" /> 
+                <p> {{ chosenProduct.product_name}} </p>
+                <br>
+                <p> ${{ chosenProduct.price}} </p>
+     
+                
+                <br>
+                           
+                <input class="quantityInput"  type="number" [(ngModel)]='requestedQuantity'  #quantityInput />                
+                <!-- <input class="quantityInput" ng-focus type="number"  #quantity_val   />                 -->
+                <button (click)='addtocart(quantityInput.value)'  >Add to cart</button>
+            </div>
+        </div>
+
+    </div>
+
+<!-- </div> -->
+
+
+<!-- <div clickedNext >
+    <div  *ngIf='clickedNext && dialogClose ' >
+        <div (click)='closeDialgog()' class="backGroundDivFrorDialog">
+            <div  class="dialogDiv">
+                <h1> Please Choose the requested quantity </h1>
+                <br>
+                <img style="width: 100px; height: 100px; position: absolute;" width='70px' src="{{chosenProduct.product_picture}}" /> 
+                <p> {{ chosenProduct.product_name}} </p>
+                <br>
+                <p> ${{ chosenProduct.price}} </p>
+     
+                
+                <br>
+                <input  #quantity_val autofocus />
+                
+                <button (click)='addtocart(quantity_val.value)'  >Add to cart</button>
+            </div>
+        </div>
+
+    </div>
+
+</div> -->
+
+   

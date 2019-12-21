@@ -1,0 +1,57 @@
+
+<h1> Order </h1>
+
+<form [formGroup]='userOrderDetails' (ngSubmit)='orderBtn()' >
+    <div>
+            City: <input type="text" placeholder="shipping city" name='city'  (dblclick)='autoUserData($event)'  formControlName='city'  autofocus /> 
+            <span *ngIf='userOrderDetails.controls.city.errors  '>
+                <span *ngIf='userOrderDetails.controls.city.errors.required'>  Required</span>   
+            </span>
+           <br>
+            Street: <input type="text" placeholder="shipping street " name='street'  (dblclick)='autoUserData($event)'   formControlName='street'  />
+            <span *ngIf='userOrderDetails.controls.street.errors '>
+                <span *ngIf='userOrderDetails.controls.street.errors.required'  >  Required</span>   
+           </span>
+            <br>
+            Shipping Date: <input type="date" formControlName='shippingDate' #dateInput />
+            <span *ngIf='userOrderDetails.controls.shippingDate.errors '>
+                <span *ngIf='userOrderDetails.controls.shippingDate.errors.required' >  Required</span>   
+           </span>
+            <br>
+                        credit card: <input  [pattern]="patternCard"  formControlName='creditNumber' #cardInput  />
+                        <span *ngIf='userOrderDetails.controls.creditNumber.errors '>
+                            <span *ngIf='userOrderDetails.controls.creditNumber.errors.required'  >  Required</span>   
+                       </span>
+
+                        <span *ngIf='creditCardStatus' >
+                            {{ creditCardStatus }}
+                        </span>
+
+
+    </div>
+    <input type="submit" value="order"  [disabled]='!userOrderDetails.controls.city.valid || !userOrderDetails.controls.street.valid ||  !userOrderDetails.controls.shippingDate.valid || !userOrderDetails.controls.creditNumber.valid  ' />
+
+</form>
+
+
+
+<div *ngIf='submited' >
+    <div class='backGroundDivFrorDialog' >   
+        <div class="dialogDiv" >
+            <div>
+                <h1> your order was successfully received </h1>
+                <button (click)='downladReceipt()' > open the receipt link  </button>
+                <span *ngIf='downloadReceipt'>
+                    <a href="http://localhost:3000/{{namereceipt}}" download target="_blank" > Download Receipt </a>
+
+                </span>
+                <br>
+                <button style="margin: 20px;" (click)='finishShopping()' > OK </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

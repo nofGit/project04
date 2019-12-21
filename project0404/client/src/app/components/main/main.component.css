@@ -1,0 +1,37 @@
+
+
+
+@media only screen and (max-width: 600px) {
+    .mainDiv{ display:none; flex-flow: column; }
+    .buttonToCLoseCart{ position: absolute; }
+  }
+
+.mainDiv{  
+    /* display: flex;  */
+    display: inline-flex;
+}
+
+
+
+button{
+    width: 50px;
+    height: 20px;
+    margin: 10px;
+}
+
+        .cartDiv{
+            width: 500px;
+            height: 900px;
+            overflow: auto;
+            border: 2px dashed rgb(122, 35, 68);
+        }
+
+.productsDiv{
+    height: 100%;
+    width: -webkit-fill-available;
+}
+
+.closeCart .cartDiv {
+    display: none;
+}
+

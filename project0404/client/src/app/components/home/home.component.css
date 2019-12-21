@@ -1,0 +1,34 @@
+
+@media only screen and (max-width: 400px) {
+    .mainDiv{ display:block; }
+  }
+  
+.mainDiv{  
+    display: flex; 
+    height: -webkit-fill-available;
+
+}
+
+
+
+.loginDiv{
+    border: 1px solid black;
+    height: auto;
+    width: 30%;
+  }
+  
+
+.aboutUsDiv{
+    border: 1px solid black;
+    height: auto;
+    margin: 10px;
+    width: 30%;
+}
+
+.totalOrdersDiv{
+    border: 1px solid black;
+    height: auto;
+    width: 580px;
+
+}
+

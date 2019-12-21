@@ -1,0 +1,15 @@
+
+            
+              
+  order number 39 :
+
+
+              
+   product name    quantity   price   total 
+         
+             
+ 
+         llll        3     55    165
+                 
+          
+   total price   = 165  

@@ -1,0 +1,21 @@
+
+            66
+              
+  order number 31 :
+
+
+              
+   product name    quantity   price   total 
+         
+             
+ 
+         Milk        3     4    12
+                 
+ 
+         Coconut milk        2     7    14
+                 
+ 
+         Organic milk        5     6    30
+                 
+          
+   total price   = 56  

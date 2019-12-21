@@ -1,0 +1,21 @@
+
+
+              
+  order number 36 :
+
+
+              
+   product name    quantity   price   total 
+         
+             
+ 
+         Red hawk cheese        3     22    66
+                 
+ 
+         Cottage cheese        8     6    48
+                 
+ 
+         Strawberry yogurt        55     6    330
+                 
+          
+   total price   = 444  

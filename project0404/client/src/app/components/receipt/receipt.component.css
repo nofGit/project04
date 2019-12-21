@@ -1,0 +1,26 @@
+
+table {
+    border-collapse: separate;
+    width: 500px;
+  }
+  tr td {
+    height: 1px;
+    border: 1px dashed black;
+    text-align: center;
+    
+  }
+
+
+table tr{
+    height: 30px;
+    margin: 20px;
+}
+
+.searchProduct{
+    margin: 20px;
+    display: flex;
+}
+
+button{
+    cursor: pointer;
+}

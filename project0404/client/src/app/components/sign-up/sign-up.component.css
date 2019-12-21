@@ -1,0 +1,45 @@
+
+
+@media only screen and (max-width: 400px) {
+    .mainDiv{ display:none; flex-flow: column; }
+    input{ width: 80px;}
+
+  }
+
+
+.fields{
+margin: 5px auto;
+}
+
+a:hover{
+    background-color: rgb(148, 115, 115);
+}
+
+.mainDiv{  
+    width: -webkit-fill-available;
+    box-sizing: border-box;
+    height: 750px;
+    display: flex; 
+    background-image: url('../../../assets/images/shop.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+}
+
+.signForm{
+    /* border: 1px solid black; */
+    margin: 20px;
+    width: 50%;
+    height: 500px;
+}
+span{
+    /* background-color: red; */
+    color: red;
+}
+
+label{
+    font-weight: bold;
+}

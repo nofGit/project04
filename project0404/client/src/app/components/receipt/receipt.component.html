@@ -1,0 +1,31 @@
+
+    <button style=" margin: 20px; display: flex; " (click)= 'backToCart()' >Back to cart</button> <br>
+    <h1>receipt</h1>
+
+
+    
+    <div class="searchProduct" >
+        <label> Search Product </label>
+        <input placeholder="search product" [(ngModel)]= 'searchReceiptProduct' (keyup)='searchProduct($event)' />
+    </div>
+
+    <table>
+        <tr >
+            <th>product name</th>  &nbsp; <th>  price </th> &nbsp; <th> quantity</th>
+        </tr>
+        <tr style="height: 20px;" *ngFor="let cartItem of cartItems">
+            <td  class="searchProductName" >{{cartItem.product_name}}</td>&nbsp;
+            <td> {{cartItem.price}} </td>&nbsp;
+            <td> {{cartItem.quantity}} </td> &nbsp;
+            <td>
+                <img  style="display: table; margin: 10px;" width='40px' src="{{cartItem.product_picture}}" >
+            </td>
+    </tr>
+
+
+    <tr  >  Total Price:  ${{totalPrice}}    </tr>
+
+
+        
+        </table>
+    

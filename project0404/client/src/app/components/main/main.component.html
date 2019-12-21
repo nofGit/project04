@@ -1,0 +1,12 @@
+<div class="mainDiv" [ngClass]="{'closeCart' : cartClosed}">
+    
+    <div class="cartDiv">
+        <app-cart></app-cart>
+    </div>
+    
+    
+    <button  class="buttonToCLoseCart" (click)='closeCart()'> {{buttonVal}} </button>
+    <div class="productsDiv">
+        <app-products></app-products>
+    </div>
+</div>

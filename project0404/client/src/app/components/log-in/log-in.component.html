@@ -1,0 +1,43 @@
+<div class="formDiv" >
+
+    <h2> Log In </h2>
+    
+
+<form [formGroup]='loginUser' (ngSubmit)='logInBtn()'>
+    <div  *ngIf='!dusplayLogin' > 
+        <div>
+        <b> Email: </b>&nbsp; &nbsp; &nbsp; <input type="text" placeholder="email" formControlName='email' autofocus /> <br/>
+          <b> Password: </b> <input type="password" placeholder="password" formControlName='user_password'/> <br/>
+        </div>
+        <br>
+        <input  style="margin:70px;" type="submit" [disabled]='!loginUser.controls.email.valid || !loginUser.controls.user_password.valid' value="Log In" />
+   
+        <div *ngIf='!dusplayLogin' >
+                <b>    didn't sign up? 
+              <a routerLink='/sign_up' > Sign up </a> </b>
+        </div>
+    </div>
+    
+</form>
+
+<br>
+
+
+
+<div  startShopButton>
+    <div class="userStatusMessage"  *ngIf='startShopButton'>
+        <button   (click)='startShop()'  >{{ buttonValue }}</button>
+    </div>
+</div>
+
+<div   continueShopButton>
+    <div class="userStatusMessage" *ngIf='continueShopButton'>
+        <p> {{userStatus}} </p>
+        <button  style="cursor: pointer;" (click)='contineShop()' >{{buttonValue}}</button>
+    </div>
+</div>
+<br>
+
+</div>
+
+
