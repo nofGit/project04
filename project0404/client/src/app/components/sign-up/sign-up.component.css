@@ -20,7 +20,6 @@ a:hover{
     box-sizing: border-box;
     height: 750px;
     display: flex; 
-    background-image: url('../../../assets/images/shop.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
